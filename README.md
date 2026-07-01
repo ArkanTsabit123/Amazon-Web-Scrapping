@@ -70,11 +70,6 @@ Example of data successfully extracted:
 - This project is for **educational purposes** and personal use only. Respect Amazon's Terms of Service.
 - Amazon's HTML structure can change over time, so the code may need adjustments.
 
-## 📚 Resources
-
-- [Darshil Parmar Video Tutorial](https://www.youtube.com/watch?v=2hPCX-p_X8Q)
-- [BeautifulSoup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-- [Requests Documentation](https://docs.python-requests.org/)
 
 ## 📈 Future Improvements
 
@@ -85,11 +80,10 @@ Example of data successfully extracted:
 
 ## 👤 About the Author
 
-**Arkan Tsabit** - Certified Data Engineer (Oracle, IBM, Meta)
+**Arkan Tsabit** - Certified Data Engineer (Oracle, IBM, Meta) with expertise in building scalable data pipelines, cloud data warehousing, and real-time streaming solutions. Passionate about turning raw data into actionable insights.
 
 [![GitHub](https://img.shields.io/badge/GitHub-ArkanTsabit123-181717?style=flat&logo=github)](https://github.com/ArkanTsabit123)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-ArkanTsabit-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/arkan-tsabit)
-
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ArkanTsabit-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/arkan-tsabit-116a2434b)
 ---
 
-**Happy scraping!** Feel free to reach out if you have any questions. 🚀
+**Happy scraping!** Feel free to reach out if you have any questions. 
