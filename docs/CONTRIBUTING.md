@@ -58,6 +58,7 @@ Feature requests are welcome! When suggesting an enhancement:
 ```bash
 Python 3.9+
 Git
+Google Chrome (latest version)
 ```
 
 ### Setup Steps
@@ -96,7 +97,7 @@ Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) guidelines:
 ### Example
 
 ```python
-def extract_product_title(soup):
+def extract_product_title(soup: BeautifulSoup) -> str:
     """
     Extract product title from BeautifulSoup object.
 
@@ -137,10 +138,16 @@ Before submitting changes:
 
 ```bash
 # Run the final scraper
-jupyter notebook amazon_scrape_final.ipynb
+python amazon_scrape_final.py
+
+# Run verification
+python verify-phase-5.py
+
+# Run debugger
+python debugger.py
 
 # Test individual functions
-python -c "from scraper import get_title; print('OK')"
+python -c "from amazon_scrape_final import extract_title; print('OK')"
 ```
 
 ---
@@ -200,7 +207,7 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 ### Examples
 
 ```
-feat: add multi-page scraping support
+feat: add multi-product scraping support
 
 fix: update price selector for Amazon HTML change
 
@@ -247,7 +254,9 @@ Amazon-Web-Scrapping/
 │
 ├── amazon_scrape_final.ipynb
 ├── amazon_web_scraping_tutorial.ipynb
+├── amazon_scrape_final.py
 ├── amazon_data.csv
+├── amazon_all_products.csv
 │
 ├── docs/
 │   ├── blueprint.md
@@ -256,6 +265,9 @@ Amazon-Web-Scrapping/
 │
 ├── images/
 │   └── *.png
+│
+├── debug_output/
+│   └── debug_price_*.html
 │
 └── .ipynb_checkpoints/
 ```
@@ -266,6 +278,7 @@ Amazon-Web-Scrapping/
 
 - Check [README.md](README.md) for setup instructions
 - Review [docs/](docs/) for detailed documentation
+- Check [CHANGELOG.md](CHANGELOG.md) for version history
 - Open an issue for bugs or feature requests
 
 ---
@@ -284,4 +297,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-*Last Updated: 2026-07-20*
+*Last Updated: 2026-07-21*

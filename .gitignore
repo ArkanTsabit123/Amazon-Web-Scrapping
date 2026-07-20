@@ -1,3 +1,348 @@
-.ipynb_checkpoints/
+# ============================================
+# Virtual Environment
+# ============================================
+venv/
+env/
+ENV/
+.env
+.venv/
+
+# ============================================
+# Python Cache & Build
+# ============================================
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+*.manifest
+*.spec
+
+# ============================================
+# Airflow (Not used but keeping for reference)
+# ============================================
+airflow.db
+airflow.cfg
+webserver_config.py
+logs/
+plugins/
+*.pid
+airflow-webserver.pid
+airflow-scheduler.pid
+airflow-worker.pid
+airflow-webserver.log
+airflow-scheduler.log
+airflow-worker.log
+airflow.db-journal
+airflow.db-wal
+airflow.db-shm
+
+# ============================================
+# Docker (Not used but keeping for reference)
+# ============================================
+.docker/
+docker-compose.override.yml
+*.dockerignore
+
+# ============================================
+# DuckDB (Not used but keeping for reference)
+# ============================================
+warehouse/*.duckdb
+warehouse/*.db
+warehouse/*.log
+warehouse/*.wal
+warehouse/*.tmp
+!warehouse/.gitkeep
+
+# ============================================
+# Data Files - Keep amazon_data.csv tracked
+# ============================================
+*.csv
+*.xlsx
+*.parquet
+!amazon_data.csv
+!amazon_all_products.csv
+
+# ============================================
+# IDE / Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vs/
+*.code-workspace
+
+# ============================================
+# OS Generated Files
+# ============================================
+Thumbs.db
+desktop.ini
+.DS_Store
+*.log
+*.tmp
+
+# ============================================
+# Streamlit (Not used but keeping for reference)
+# ============================================
+.streamlit/
+.streamlit/config.toml
+.streamlit/secrets.toml
+
+# ============================================
+# Jupyter Notebook
+# ============================================
+.ipynb_checkpoints/
+*.ipynb
+!amazon_scrape_final.ipynb
+!amazon_web_scraping_tutorial.ipynb
+
+# ============================================
+# Testing
+# ============================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+*.cover
+.mypy_cache/
+.ruff_cache/
+
+# ============================================
+# Backup & Temp Files
+# ============================================
+*.bak
+*.tmp
+*.temp
+*.backup
+*.old
+*.orig
+*.rej
+*.patch
+
+# ============================================
+# Verification Reports
+# ============================================
+phase*_verification.json
+phase*_verification_report.txt
+
+# ============================================
+# Debug Files
+# ============================================
+debug_output/
+debugger.py
+
+# ============================================
+# Verification Scripts
+# ============================================
+verify-phase-1.py
+verify-phase-2.py
+verify-phase-3.py
+verify-phase-4.py
+verify-phase-5.py
+verify-phase-6.py
+verify-phase-7.py
+run_all_verifications.py
+
+# ============================================
+# Local Development
+# ============================================
+local.env
+.env.local
+.env.*.local
+*.local
+
+# ============================================
+# Database Files
+# ============================================
+*.db
+*.duckdb
+*.sqlite
+*.sqlite3
+
+# ============================================
+# Misc
+# ============================================
+*.pid
+*.seed
+*.lock
+*.tar.gz
+*.zip
+*.rar
+
+# ============================================
+# Celery (Not used but keeping for reference)
+# ============================================
+celerybeat-schedule
+celerybeat.pid
+
+# ============================================
+# Flask (Not used but keeping for reference)
+# ============================================
+instance/
+.webassets-cache
+
+# ============================================
+# Security
+# ============================================
+*.key
+*.pem
+*.crt
+*.csr
+secrets/
+
+# ============================================
+# Python Profiling
+# ============================================
+*.prof
+*.pyprof
+
+# ============================================
+# Documentation Build
+# ============================================
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# ============================================
+# Version Control
+# ============================================
+.python-version
+Pipfile.lock
+poetry.lock
+pyproject.toml
+
+# ============================================
+# MyPy / Pyre / Pytype
+# ============================================
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# ============================================
+# Coverage
+# ============================================
+.coverage
+coverage.xml
+*.cover
+
+# ============================================
+# Sphinx
+# ============================================
+docs/_build/
+
+# ============================================
+# Tox
+# ============================================
+.tox/
+
+# ============================================
+# Node (if used)
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ============================================
+# Frontend Build
+# ============================================
+dist/
+build/
+out/
+*.min.js
+*.min.css
+
+# ============================================
+# Terraform (Not used but keeping for reference)
+# ============================================
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+
+# ============================================
+# Kubernetes (Not used but keeping for reference)
+# ============================================
+*.kubeconfig
+*.secret.yaml
+
+# ============================================
+# SSH / GPG Keys
+# ============================================
+*.pem
+*.ppk
+*.key
+*.pub
+*.gpg
+*.asc
+
+# ============================================
+# Media Files
+# ============================================
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico
+*.webp
+*.mp3
+*.wav
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# ============================================
+# Screenshots - KEEP THESE TRACKED
+# ============================================
+!images/
+!images/*.png
+!images/*.jpg
+!images/*.jpeg
+
+# ============================================
+# Archive Files
+# ============================================
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+*.xz
+
+# ============================================
+# Database Migrations
+# ============================================
+*/migrations/*.pyc
+*/migrations/*.pyo
+
+# ============================================
+# Airflow DAGs Cache (Not used but keeping for reference)
+# ============================================
+dags/__pycache__/
+scripts/__pycache__/
+dashboard/__pycache__/
