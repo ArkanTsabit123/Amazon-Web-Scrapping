@@ -1,0 +1,136 @@
+// =============================================
+// AMAZON SCRAPING - DATA WAREHOUSE SCHEMA
+// BASED ON ACTUAL SCRAPING OUTPUT
+// USING https://dbdiagram.io/
+// =============================================
+
+// ---------------------------------------------
+// 1. product_dim (Product Dimension)
+// ---------------------------------------------
+Table product_dim {
+  product_id integer [pk, increment]
+  title varchar [note: 'Product name from #productTitle']
+  product_url varchar [unique]
+  search_keyword varchar [note: 'Keyword used in search']
+}
+
+// ---------------------------------------------
+// 2. price_dim (Price Dimension)
+// ---------------------------------------------
+Table price_dim {
+  price_id integer [pk, increment]
+  price_string varchar [note: 'Raw price with $, e.g., $37.99']
+  price_amount float [note: 'Numeric price, e.g., 37.99']
+  currency varchar [default: 'USD']
+}
+
+// ---------------------------------------------
+// 3. rating_dim (Rating Dimension)
+// ---------------------------------------------
+Table rating_dim {
+  rating_id integer [pk, increment]
+  rating_string varchar [note: 'e.g., 4.8 out of 5 stars']
+  rating_stars float [note: 'Numeric rating, e.g., 4.8']
+}
+
+// ---------------------------------------------
+// 4. reviews_dim (Reviews Dimension)
+// ---------------------------------------------
+Table reviews_dim {
+  reviews_id integer [pk, increment]
+  reviews_string varchar [note: 'e.g., 8 ratings']
+  review_count integer [note: 'Numeric count, e.g., 8']
+}
+
+// ---------------------------------------------
+// 5. availability_dim (Availability Dimension)
+// ---------------------------------------------
+Table availability_dim {
+  availability_id integer [pk, increment]
+  status_string varchar [note: 'e.g., In Stock, Not Available']
+  status_code varchar [note: 'IN_STOCK, OUT_OF_STOCK, UNKNOWN']
+}
+
+// ---------------------------------------------
+// 6. scrape_date_dim (Scrape Date Dimension)
+// ---------------------------------------------
+Table scrape_date_dim {
+  date_id integer [pk, increment]
+  scrape_date date
+  scrape_timestamp timestamp [note: 'Full timestamp']
+  scrape_year integer
+  scrape_month integer
+  scrape_day integer
+  scrape_weekday varchar [note: 'Monday-Sunday']
+  scrape_hour integer [note: '0-23']
+}
+
+// ---------------------------------------------
+// 7. fact_amazon_scraping (Fact Table)
+// ---------------------------------------------
+Table fact_amazon_scraping {
+  fact_id integer [pk, increment]
+  product_id integer [not null]
+  price_id integer [not null]
+  rating_id integer [not null]
+  reviews_id integer [not null]
+  availability_id integer [not null]
+  date_id integer [not null]
+  search_keyword varchar [note: 'Keyword used in search']
+  rank_position integer [note: 'Position in search results']
+}
+
+// =============================================
+// RELATIONSHIPS - ALL CONNECTED
+// =============================================
+
+Ref: fact_amazon_scraping.product_id > product_dim.product_id
+Ref: fact_amazon_scraping.price_id > price_dim.price_id
+Ref: fact_amazon_scraping.rating_id > rating_dim.rating_id
+Ref: fact_amazon_scraping.reviews_id > reviews_dim.reviews_id
+Ref: fact_amazon_scraping.availability_id > availability_dim.availability_id
+Ref: fact_amazon_scraping.date_id > scrape_date_dim.date_id
+
+// =============================================
+// SAMPLE DATA (From Your Actual CSV)
+// =============================================
+
+Records product_dim(product_id, title, product_url, search_keyword) {
+  1, 'OUBANG 2 Pack Controllers Work with PS4', 'https://www.amazon.com/dp/XXX', 'playstation 4'
+  2, 'PlayStation 4 Slim 1TB Console', 'https://www.amazon.com/dp/YYY', 'playstation 4'
+  3, 'Hunting Simulator - PlayStation 4', 'https://www.amazon.com/dp/ZZZ', 'playstation 4'
+}
+
+Records price_dim(price_id, price_string, price_amount, currency) {
+  1, '$37.99', 37.99, 'USD'
+  2, '', NULL, 'USD'
+  3, '$16.61', 16.61, 'USD'
+}
+
+Records rating_dim(rating_id, rating_string, rating_stars) {
+  1, '4.8 out of 5 stars', 4.8
+  2, '4.7 out of 5 stars', 4.7
+  3, '4.3 out of 5 stars', 4.3
+}
+
+Records reviews_dim(reviews_id, reviews_string, review_count) {
+  1, '8 ratings', 8
+  2, '15,164 ratings', 15164
+  3, '937 ratings', 937
+}
+
+Records availability_dim(availability_id, status_string, status_code) {
+  1, 'Not Available', 'OUT_OF_STOCK'
+  2, '', 'UNKNOWN'
+  3, 'Only 3 left in stock - order soon', 'LOW_STOCK'
+}
+
+Records scrape_date_dim(date_id, scrape_date, scrape_timestamp, scrape_year, scrape_month, scrape_day, scrape_weekday, scrape_hour) {
+  1, '2026-07-20', '2026-07-20 14:30:00', 2026, 7, 20, 'Monday', 14
+}
+
+Records fact_amazon_scraping(fact_id, product_id, price_id, rating_id, reviews_id, availability_id, date_id, search_keyword, rank_position) {
+  1, 1, 1, 1, 1, 1, 1, 'playstation 4', 1
+  2, 2, 2, 2, 2, 2, 1, 'playstation 4', 2
+  3, 3, 3, 3, 3, 3, 1, 'playstation 4', 3
+}
